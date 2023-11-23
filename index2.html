@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="zatrans-rent-car-icon2.png">
+    <title> Zatrans Rent Car</title>
+    <!-- Add Animate.css library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Link CSS dari Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS Kustom */
+        .icon {
+            width: 140px; /* Adjust the width as needed */
+            height: 140px; /* Adjust the height as needed */
+            vertical-align: middle;
+            margin-right: 0px; /* Adjust the margin as needed */
+        }
+        body {
+            background-color: #fff; /* Warna latar belakang utama */
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #333; /* Warna teks utama */
+        }
+        /* Updated CSS for navbar and links */
+        .navbar {
+            background-color: #fff; /* Warna latar belakang navbar */
+            position: sticky;
+            top: 0;
+            z-index: -1;
+            transition: background-color 0.3s; /* Add transition for smooth color change */
+        }
+
+        .navbar.hover,
+        .navbar.scroll {
+            background-color: #333; /* Warna latar belakang navbar saat dihover atau di-scroll */
+        }
+
+        .navbar .nav-link {
+            color: #999; /* Warna teks link */
+            transition: color 0.3s; /* Add transition for smooth color change */
+        }
+
+        .navbar.scroll .nav-link {
+            color: #fff; /* Warna teks link saat di-scroll */
+        }
+        .navbar-brand {
+            font-size: 24px;
+            transition: color 0.3s; /* Add transition for smooth color change */
+        }
+
+        .navbar.scroll .navbar-brand {
+            color: #1c2331; /* Warna teks brand saat di-scroll */
+        }
+        .jumbotron{
+            background-color: #fff; /* Warna latar belakang jumbotron */
+        }
+        .jumbotron .jumbotron-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 40%;
+            background-image: url('toyota-alphard-rental-mobil-sby.png');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .jumbotron .jumbotron-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            width: 50%;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        .img-attrib {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0 .5em .5em 0;
+        padding: .25em;
+        color: white;
+        background-color: rgba(0,0,0,.2)
+        }
+        .read_bt a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            color: #333; /* Warna teks tombol */
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .read_bt a:hover {
+            transform: scale(1.05);
+            background-color: #ffc107;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffc107;
+        }
+
+        .card {
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        #mobil{
+            background-color: #fff;
+            padding: 60px 0; /* Tambahkan padding atas dan bawah */ 
+        }
+        #tentang {
+            background-color: #333; /* Warna latar belakang biru */
+            padding: 80px 0; /* Tambahkan padding atas dan bawah */  
+            z-index: 0;
+            color: #fff;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .tentang-zatrans{
+            animation-delay: 2s;
+            animation-fill-mode: none, forwards; 
+        }
+        h2, h5{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+        /* Layanan Kami */
+        #service {
+            background-color: #f5f5f5;
+            padding: 60px 0;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card i {
+            font-size: 48px;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+
+        .service-card h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 16px;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);    
+        }
+        #kontak {
+            background-color: #333;   
+            color: #ffffff;
+            padding: 60px 0;
+        }
+        /* Social Media Icons */
+        .social-media {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .social-media li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .social-media i {
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        .social-media i:hover {
+            color: #ffc107;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Custom animation duration */
+        .animate__slow {
+            animation-duration: 2.5s; /* Adjust the duration as needed */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="zatrans-rent-car-icon3.png" alt="Zatrans Rent Car" width="150" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="scrollToSection('#beranda')">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="scrollToSection('#tentang')">Tentang Kami</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="scrollToSection('#mobil')">Mobil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="scrollToSection('#service')">Layanan Kami</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="scrollToSection('#kontak')">Kontak</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- jumbotron -->
+<div class="jumbotron" id="beranda">
+    <div class="jumbotron-bg animate__animated animate__fadeInRight animate__slow">
+        <div class="img-attrib">publicdomainq.net</div>
+    </div> <!-- Bagian latar belakang -->
+    <div class="jumbotron-content">
+        <h1 class="best_text">Kami Adalah<br>Panduan Terbaik<br>Untuk Transportasi Anda</h1>
+        <p class="many_text">Ada Banyak Pilihan & Variasi 
+        </p> 
+        <div class="read_bt"><a onclick="scrollToSection('#tentang')">Tentang Kami</a></div>
+    </div>
+</div>
+
+<!-- tentang -->
+<div id="tentang">
+    <div class="container">
+        <h2 class="text-center mb-12">Zatrans Rent Car</h2>
+    <div class="row">
+        <div class="col-md-6 tentang-zatrans animate__animated animate__fadeInRight animate__slow">
+            <img src="toyota-alphard-rental-mobil-surabaya.png" class="img-fluid" alt="rental-mobil-surabaya">
+        </div>
+        <div class="col-md-6">
+            <p class="lead">Selamat datang di ZaTrans Rent Car, Kami adalah perusahaan rental mobil terkemuka di Surabaya. tempat di mana perjalanan Anda tidak hanya sekadar menuju tujuan, tetapi juga menjadi petualangan luar biasa yang tak terlupakan.</p>
+            <p class="lead">Dengan komitmen untuk menyediakan pengalaman berkendara yang tak tertandingi, kami memahami bahwa sebuah perjalanan adalah lebih dari sekadar rute dari A ke B. Itulah mengapa kami hadir untuk memberikan Anda lebih dari sekadar mobil – kami membawa Anda pada perjalanan yang penuh kenangan indah dan kebebasan tiada tara.</p>  
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Daftar Mobil -->
+<div id="mobil">
+    <div class="container">
+        <h2 class="text-center mb-4">Daftar Mobil Kami</h2>
+    <div class="row">
+        <!-- Kartu Mobil -->
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/alphard-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-alphard">
+                <div class="card-body">
+                    <h5 class="card-title">Alphard</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/fortuner-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-Fortuner">
+                <div class="card-body">
+                    <h5 class="card-title">Fortuner</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/inova-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-innova-reborn">
+                <div class="card-body">
+                    <h5 class="card-title">Innova Reborn</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/xenia-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-xenia">
+                <div class="card-body">
+                    <h5 class="card-title">Xenia</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/xpander-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-xpander">
+                <div class="card-body">
+                    <h5 class="card-title">Xpander</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/avanza-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-avanza">
+                <div class="card-body">
+                    <h5 class="card-title">Avanza</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 mb-2">
+            
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/hiace-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-hiace-commuter">
+                <div class="card-body">
+                    <h5 class="card-title">Hiace comutter</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border text-center">
+                <img src="img/hiace-premio-rental-mobil-sby.png" class="card-img-top" alt="rental-mobil-surabaya-hiace-premio">
+                <div class="card-body">
+                    <h5 class="card-title">Hiace Premio</h5>
+                    <!-- <p class="card-text">Mobil mewah dengan performa tinggi.</p> -->
+                    <a href="https://wa.me/6281249362126" class="btn btn-primary"><i class="fab fa-whatsapp"></i></li> Sewa Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 mb-2">
+            
+        </div>
+        <!-- Tambahkan kartu mobil lain di sini -->
+    </div>
+    </div>
+</div>
+
+<!-- Layanan Kami -->
+<div id="service">
+    <h2 class="text-center mb-12">Layanan Kami</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h4>Rental Mobil</h4>
+                    <p>Menyediakan berbagai jenis mobil untuk kebutuhan perjalanan Anda.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h4>Harga Terjangkau</h4>
+                    <p>Menawarkan Mobil Berkualitas dengan Harga Terjangkau.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h4>Tim Profesional</h4>
+                    <p>Tim profesional kami siap membantu mengantar Anda sampai tujuan.</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+            <!-- Video Card -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="videos/zatrans-car-rent.mp4" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <!-- Video Card -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="videos/zatrans-car-rent1.mp4" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Kontak Kami -->
+<div id="kontak">
+    <div class="container">
+        <h2 class="text-center mb-4">Kontak Kami</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-info">
+                    <h4>Alamat</h4>
+                    <p>Southlake Residende Juanda D - 50 Sedati - Sidoarjo</p>
+                    <p>Sidoarjo, Jawa Timur</p>
+                </div>
+                <div class="contact-info">
+                    <h4>Reservasi</h4>
+                    <p><a href="https://wa.me/6281249362126" target="_blank"><i class="fab fa-whatsapp"></i></a> 0812 4936 2126</p>
+                </div>
+                <h4>Social Media</h4>
+                <ul class="list-unstyled social-media">
+                    <!-- <li><a href="https://www.facebook.com/your-page" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com/your-page" target="_blank"><i class="fab fa-twitter"></i></a></li> -->
+                    <li><a href="https://www.instagram.com/lungotransportation/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.tiktok.com/@zatransrentcar" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h4>Maps</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.779222862074!2d112.81260737418296!3d-7.378622772624092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7efd1507f9e81%3A0xf02e31011af3e167!2sSouthlake%20Residence%20%40%20Juanda!5e0!3m2!1sen!2sid!4v1692099646642!5m2!1sen!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2023 Zatrans Rent Car, Rental Mobil Surabaya. All rights reserved. Designed & Developed by <a href="https://aldiruli.github.io/" style="color: #fff;"> Me</a></p>
+</div>
+
+<!-- Link JavaScript dari Bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function scrollToSection(sectionId) {
+        $('html, body').animate({
+            scrollTop: $(sectionId).offset().top
+        }, 800);
+    }
+    $(document).ready(function () {
+    // Function to toggle classes based on scroll position
+    function updateNavbar() {
+        if ($(window).scrollTop() > 50) { // Change the value as needed
+            $('.navbar').addClass('scroll').removeClass('hover');
+            $('.navbar').css('z-index', '100'); // Change the z-index value
+        } else {
+            $('.navbar').removeClass('scroll hover');
+            $('.navbar').css('z-index', '-1'); // Reset the z-index value
+        }
+    }
+
+    // Toggle classes on initial page load
+    updateNavbar();
+
+    // Toggle classes on scroll
+    $(window).scroll(function () {
+        updateNavbar();
+    });
+});
+
+function animateOnScroll() {
+        // Get the position of the current viewport
+        const viewportTop = $(window).scrollTop();
+        const viewportBottom = viewportTop + $(window).height();
+
+        // Define the sections you want to animate (based on their IDs)
+        const sectionsToAnimate = ['#beranda', '#tentang', '#mobil', '#service', '#kontak'];
+
+        // Loop through each section
+        sectionsToAnimate.forEach(sectionId => {
+            const $section = $(sectionId);
+            
+            // Check if the section is visible in the viewport
+            if ($section.length && $section.offset().top < viewportBottom) {
+                // Add Animate.css classes to child elements of the section
+                $section.find('.animate__animated').addClass('animate__fadeIn');
+            }
+        });
+    }
+
+    // Call the animateOnScroll function on initial page load and when scrolling
+    $(document).ready(function () {
+        animateOnScroll();
+
+        $(window).scroll(function () {
+            animateOnScroll();
+        });
+    });
+
+</script>
+</body>
+</html>
